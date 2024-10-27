@@ -6,11 +6,11 @@
 </head>
 <body>
     <style>
-        body { background-color:black; 
-        h1 { color: white; }
-        marquee {color:white;}
-        a {color:white;
-        text-decoration: none;}
+        body { background-color:black;
+        color: #FFF;
+        }
+        a { color: #FFF;
+            text-decoration: none;}
         canvas {
             border: 1px solid #FFF;
             cursor: crosshair;
@@ -19,6 +19,57 @@
     </style>
     <marquee>привет</marquee>
     <center><h1>Привет! Это тестовый сайт на GitHub!</h1></center>
+    <center>
+        <h3>Это новый  ЧАТ ЖИПИТИ НА ДЖАВА СКРИПТЕ!</h3>
+        <img src="assets/nerd.png" alt="ЛОГОТИП!">
+    </center>
+    <center>
+        <h2 id="outputText"></h2>
+        <input type="text" id="inputText" placeholder="Введите текст">
+        <button id="submitButton">Отправить</button>
+
+        <script>
+            // Словарь с фразами и ответами
+            const responses = {
+                "привет": "превед :-)",
+                "кто создатель?": "Ярик 21 (Yarik21YT)",
+                "как дела?": "я робот-долб***! я должен танцевать! 😝😄",
+                "да": "нет",
+                "нет": "нет",
+                "напиши сочинение": "не хочу",
+            };
+    
+            document.getElementById('submitButton').onclick = function() {
+                var input = document.getElementById('inputText').value.toLowerCase();
+                var response = responses[input] || "Извините, я вас не понимаю.";
+                document.getElementById('outputText').innerText = response;
+            };
+        </script>
+        <h3>Комманды:</h3>
+        <table class="commands" border="1">
+            <tbody>
+                <tr>
+                    <td>привет</td>
+                </tr>
+                <tr>
+                    <td>кто создатель?</td>
+                </tr>
+                <tr>
+                    <td>как дела?</td>
+                </tr>
+                <tr>
+                    <td>да</td>
+                </tr>
+                <tr>
+                    <td>нет</td>
+                </tr>
+                <tr>
+                    <td>напиши сочинение</td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+    <br>
     <center>
         <canvas id="canvas" width="800" height="600"></canvas>
         <button id="clearButton">Очистить</button>
@@ -63,10 +114,6 @@
     </center>
     <center>
         <a href="http://yarik21yt.serv00.net">основной сайт</a>
-    </center>
-    <center>
-        <img src="assets/iexplorer.gif" alt="IE">
-		<img src="assets/netscape.gif" alt="NETSCAPE">
     </center>
 </body>
 </html>
