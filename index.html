@@ -10,10 +10,57 @@
         h1 { color: white; }
         marquee {color:white;}
         a {color:white;
-        text-decoration: none;}}
+        text-decoration: none;}
+        canvas {
+            border: 1px solid #FFF;
+            cursor: crosshair;
+        }
+        }
     </style>
     <marquee>привет</marquee>
     <center><h1>Привет! Это тестовый сайт на GitHub!</h1></center>
+    <center>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <button id="clearButton">Очистить</button>
+    
+        <script>
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            const clearButton = document.getElementById('clearButton');
+
+            let drawing = false;
+
+            canvas.addEventListener('mousedown', () => {
+                drawing = true;
+                ctx.beginPath();
+            });
+
+            canvas.addEventListener('mousemove', (event) => {
+                if (drawing) {
+                    ctx.lineTo(event.offsetX, event.offsetY);
+                    ctx.stroke();
+                }
+            });
+
+            canvas.addEventListener('mouseup', () => {
+                drawing = false;
+                ctx.closePath();
+            });
+
+            canvas.addEventListener('mouseleave', () => {
+                drawing = false;
+                ctx.closePath();
+            });
+
+            ctx.strokeStyle = '#FFF'; // Цвет линии
+            ctx.lineWidth = 2; // Толщина линии
+
+            // Функция очистки канваса
+            clearButton.addEventListener('click', () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            });
+        </script>
+    </center>
     <center>
         <a href="http://yarik21yt.serv00.net">основной сайт</a>
     </center>
